@@ -31,11 +31,11 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package com.hjow.ksch;
 
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 
 
 public abstract class Channel implements Runnable{
@@ -50,7 +50,7 @@ public abstract class Channel implements Runnable{
   static final int SSH_OPEN_RESOURCE_SHORTAGE=              4;
 
   static int index=0; 
-  private static java.util.Vector pool=new java.util.Vector();
+  private static java.util.Vector<Channel> pool=new java.util.Vector<Channel>();
   static Channel getChannel(String type){
     if(type.equals("session")){
       return new ChannelSession();
@@ -74,7 +74,7 @@ public abstract class Channel implements Runnable{
       return new ChannelForwardedTCPIP();
     }
     if(type.equals("sftp")){
-      return new ChannelSftp();
+      return new KChannelSftp();
     }
     if(type.equals("subsystem")){
       return new ChannelSubsystem();
