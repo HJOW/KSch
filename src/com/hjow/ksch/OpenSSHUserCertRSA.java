@@ -1,3 +1,4 @@
+/*
 (Forked by JCraft JSch project - Copyright (c) 2002-2016 ymnk, JCraft,Inc. All rights reserved.)
 (Please visit http://www.jcraft.com/jsch/ for details.)
 
@@ -26,3 +27,32 @@ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+package com.hjow.ksch;
+
+/**
+ *
+ */
+public class OpenSSHUserCertRSA extends KeyPairRSA implements OpenSSHCertifiedKey {
+    private static final String keyType = "ssh-rsa-cert-v01@openssh.com";
+    private static final byte[] sshrsacert = Util.str2byte(keyType);
+
+    public OpenSSHUserCertRSA(JSch jsch){
+        super(jsch);
+    }
+
+    public int getCertificateType() {
+        return SSH_CERT_TYPE_USER;
+    }
+
+    @Override
+    public int getKeyType(){
+        return RSA_CERT;
+    }
+
+    @Override
+    byte[] getKeyTypeName(){
+        return sshrsacert;
+    }
+
+}
