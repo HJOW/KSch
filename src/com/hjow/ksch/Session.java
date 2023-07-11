@@ -146,6 +146,7 @@ public class Session implements Runnable {
 	protected boolean daemon_thread = false;
 
 	private long kex_start_time = 0L;
+	private boolean forceContinueVerifyFail = false;
 
 	int max_auth_tries = 6;
 	int auth_failures = 0;
@@ -320,8 +321,10 @@ public class Session implements Runnable {
 					kex_start_time = System.currentTimeMillis();
 					boolean result = kex.next(buf);
 					if (!result) {
-						in_kex = false;
-						throw new JSchException("verify: " + result);
+						if(!forceContinueVerifyFail) {
+							in_kex = false;
+							throw new JSchException("verify: " + result);
+						}
 					}
 				} else {
 					in_kex = false;
@@ -1296,7 +1299,7 @@ public class Session implements Runnable {
 					kex_start_time = System.currentTimeMillis();
 					boolean result = kex.next(buf);
 					if (!result) {
-						throw new JSchException("verify: " + result);
+						if(!forceContinueVerifyFail) throw new JSchException("verify: " + result);
 					}
 					continue;
 				}
@@ -2675,5 +2678,11 @@ public class Session implements Runnable {
 		String value = config.getValue(key);
 		if (value != null)
 			this.setConfig(key, value);
+	}
+	
+	/** Force continue option when verifying key is failed. (Warning ! can be a weakness.) */
+	@Deprecated
+	public void setForceContinueVerifyFailed(boolean option) {
+		forceContinueVerifyFail = option;
 	}
 }
