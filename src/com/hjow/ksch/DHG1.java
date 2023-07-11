@@ -143,10 +143,10 @@ public class DHG1 extends KeyExchange{
     buf.putMPInt(e);
     session.write(packet);
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
-      JSch.getLogger().log(Logger.INFO, 
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
+      KSch.getLogger().log(Logger.INFO, 
                            "SSH_MSG_KEXDH_INIT sent");
-      JSch.getLogger().log(Logger.INFO, 
+      KSch.getLogger().log(Logger.INFO, 
                            "expecting SSH_MSG_KEXDH_REPLY");
     }
 

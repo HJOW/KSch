@@ -34,7 +34,7 @@ public class OpenSSHUserCertECDSA extends KeyPairECDSA implements OpenSSHCertifi
     private static final String keyType = "ecdsa-sha2-nistp256-cert-v01@openssh.com";
     private static final byte[] sshrsacert = Util.str2byte(keyType);
 
-    public OpenSSHUserCertECDSA(JSch jsch){
+    public OpenSSHUserCertECDSA(KSch jsch){
         super(jsch);
     }
 

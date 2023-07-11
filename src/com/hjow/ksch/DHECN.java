@@ -124,10 +124,10 @@ public abstract class DHECN extends KeyExchange{
 
     session.write(packet);
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
-      JSch.getLogger().log(Logger.INFO, 
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
+      KSch.getLogger().log(Logger.INFO, 
                            "SSH_MSG_KEX_ECDH_INIT sent");
-      JSch.getLogger().log(Logger.INFO, 
+      KSch.getLogger().log(Logger.INFO, 
                            "expecting SSH_MSG_KEX_ECDH_REPLY");
     }
 

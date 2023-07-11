@@ -126,10 +126,10 @@ public class DHGEX extends KeyExchange{
     buf.putInt(max);
     session.write(packet); 
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
-      JSch.getLogger().log(Logger.INFO, 
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
+      KSch.getLogger().log(Logger.INFO, 
                            "SSH_MSG_KEX_DH_GEX_REQUEST("+min+"<"+preferred+"<"+max+") sent");
-      JSch.getLogger().log(Logger.INFO, 
+      KSch.getLogger().log(Logger.INFO, 
                            "expecting SSH_MSG_KEX_DH_GEX_GROUP");
     }
 
@@ -168,10 +168,10 @@ public class DHGEX extends KeyExchange{
       buf.putMPInt(e);
       session.write(packet);
 
-      if(JSch.getLogger().isEnabled(Logger.INFO)){
-        JSch.getLogger().log(Logger.INFO, 
+      if(KSch.getLogger().isEnabled(Logger.INFO)){
+        KSch.getLogger().log(Logger.INFO, 
                              "SSH_MSG_KEX_DH_GEX_INIT sent");
-        JSch.getLogger().log(Logger.INFO, 
+        KSch.getLogger().log(Logger.INFO, 
                              "expecting SSH_MSG_KEX_DH_GEX_REPLY");
       }
 

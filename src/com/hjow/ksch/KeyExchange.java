@@ -123,13 +123,13 @@ public abstract class KeyExchange{
     Buffer sb=new Buffer(I_S); sb.setOffSet(17);
     Buffer cb=new Buffer(I_C); cb.setOffSet(17);
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
       for(int i=0; i<PROPOSAL_MAX; i++){
-        JSch.getLogger().log(Logger.INFO,
+        KSch.getLogger().log(Logger.INFO,
                              "kex: server: "+Util.byte2str(sb.getString()));
       }
       for(int i=0; i<PROPOSAL_MAX; i++){
-        JSch.getLogger().log(Logger.INFO,
+        KSch.getLogger().log(Logger.INFO,
                              "kex: client: "+Util.byte2str(cb.getString()));
       }
       sb.setOffSet(17);
@@ -170,13 +170,13 @@ public abstract class KeyExchange{
       }
     }
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
-      JSch.getLogger().log(Logger.INFO, 
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
+      KSch.getLogger().log(Logger.INFO, 
                            "kex: server->client"+
                            " "+guess[PROPOSAL_ENC_ALGS_STOC]+
                            " "+guess[PROPOSAL_MAC_ALGS_STOC]+
                            " "+guess[PROPOSAL_COMP_ALGS_STOC]);
-      JSch.getLogger().log(Logger.INFO, 
+      KSch.getLogger().log(Logger.INFO, 
                            "kex: client->server"+
                            " "+guess[PROPOSAL_ENC_ALGS_CTOS]+
                            " "+guess[PROPOSAL_MAC_ALGS_CTOS]+
@@ -254,8 +254,8 @@ public abstract class KeyExchange{
       sig.update(H);
       result=sig.verify(sig_of_H);
 
-      if(JSch.getLogger().isEnabled(Logger.INFO)){
-        JSch.getLogger().log(Logger.INFO, 
+      if(KSch.getLogger().isEnabled(Logger.INFO)){
+        KSch.getLogger().log(Logger.INFO, 
                              "ssh_rsa_verify: signature "+result);
       }
     }
@@ -299,8 +299,8 @@ public abstract class KeyExchange{
       sig.update(H);
       result=sig.verify(sig_of_H);
 
-      if(JSch.getLogger().isEnabled(Logger.INFO)){
-        JSch.getLogger().log(Logger.INFO, 
+      if(KSch.getLogger().isEnabled(Logger.INFO)){
+        KSch.getLogger().log(Logger.INFO, 
                              "ssh_dss_verify: signature "+result);
       }
     }

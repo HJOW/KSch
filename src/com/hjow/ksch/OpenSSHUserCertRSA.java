@@ -37,7 +37,7 @@ public class OpenSSHUserCertRSA extends KeyPairRSA implements OpenSSHCertifiedKe
     private static final String keyType = "ssh-rsa-cert-v01@openssh.com";
     private static final byte[] sshrsacert = Util.str2byte(keyType);
 
-    public OpenSSHUserCertRSA(JSch jsch){
+    public OpenSSHUserCertRSA(KSch jsch){
         super(jsch);
     }
 

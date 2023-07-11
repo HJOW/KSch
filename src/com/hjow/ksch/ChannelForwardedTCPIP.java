@@ -186,8 +186,8 @@ public class ChannelForwardedTCPIP extends Channel{
       this.config = getPort(_session, null, port);
 
     if(this.config == null){
-      if(JSch.getLogger().isEnabled(Logger.ERROR)){
-        JSch.getLogger().log(Logger.ERROR, 
+      if(KSch.getLogger().isEnabled(Logger.ERROR)){
+        KSch.getLogger().log(Logger.ERROR, 
                              "ChannelForwardedTCPIP: "+Util.byte2str(addr)+":"+port+" is not registered.");
       }
     }

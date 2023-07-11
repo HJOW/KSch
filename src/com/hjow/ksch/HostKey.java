@@ -132,7 +132,7 @@ public class HostKey{
   public String getKey(){
     return Util.byte2str(Util.toBase64(key, 0, key.length));
   }
-  public String getFingerPrint(JSch jsch){
+  public String getFingerPrint(KSch jsch){
     HASH hash=null;
     try{
       Class c=Class.forName(jsch.getConfig("md5"));

@@ -64,13 +64,13 @@ public
 class KnownHosts implements HostKeyRepository{
   private static final String _known_hosts="known_hosts";
 
-  private JSch jsch=null;
+  private KSch jsch=null;
   private String known_hosts=null;
   private java.util.Vector pool=null;
 
   private MAC hmacsha1=null;
 
-  KnownHosts(JSch jsch){
+  KnownHosts(KSch jsch){
     super();
     this.jsch=jsch;
     this.hmacsha1 = getHMACSHA1();

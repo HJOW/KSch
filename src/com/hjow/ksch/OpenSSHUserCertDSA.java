@@ -34,7 +34,7 @@ public class OpenSSHUserCertDSA extends KeyPairDSA implements OpenSSHCertifiedKe
     private static final String keyType = "ssh-dss-cert-v01@openssh.com";
     private static final byte[] sshdsacert = Util.str2byte(keyType);
 
-    public OpenSSHUserCertDSA(JSch jsch){
+    public OpenSSHUserCertDSA(KSch jsch){
         super(jsch);
     }
 

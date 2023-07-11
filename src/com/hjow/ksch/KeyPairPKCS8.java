@@ -104,7 +104,7 @@ public class KeyPairPKCS8 extends KeyPair {
 
   private KeyPair kpair = null;
 
-  public KeyPairPKCS8(JSch jsch){
+  public KeyPairPKCS8(KSch jsch){
     super(jsch);
   }
 
@@ -376,7 +376,7 @@ or
       cipher=(Cipher)(c.newInstance());
     }
     catch(Exception e){
-      if(JSch.getLogger().isEnabled(Logger.FATAL)){
+      if(KSch.getLogger().isEnabled(Logger.FATAL)){
         String message="";
         if(name==null){
           message="unknown oid: "+Util.toHex(id);
@@ -384,7 +384,7 @@ or
         else {
           message="function "+name+" is not supported";
         }
-        JSch.getLogger().log(Logger.FATAL, "PKCS8: "+message);
+        KSch.getLogger().log(Logger.FATAL, "PKCS8: "+message);
       }
     }
     return cipher;

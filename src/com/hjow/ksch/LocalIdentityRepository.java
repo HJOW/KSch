@@ -64,9 +64,9 @@ class LocalIdentityRepository implements IdentityRepository {
   private static final String name = "Local Identity Repository";
 
   private Vector identities = new Vector();
-  private JSch jsch;
+  private KSch jsch;
 
-  LocalIdentityRepository(JSch jsch){
+  LocalIdentityRepository(KSch jsch){
     this.jsch = jsch;
   }
 

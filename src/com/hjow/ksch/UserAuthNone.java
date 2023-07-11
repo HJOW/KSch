@@ -74,8 +74,8 @@ class UserAuthNone extends UserAuth{
     buf.putString(Util.str2byte("ssh-userauth"));
     session.write(packet);
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
-      JSch.getLogger().log(Logger.INFO, 
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
+      KSch.getLogger().log(Logger.INFO, 
                            "SSH_MSG_SERVICE_REQUEST sent");
     }
 
@@ -87,8 +87,8 @@ class UserAuthNone extends UserAuth{
 
     boolean result=(command==SSH_MSG_SERVICE_ACCEPT);
 
-    if(JSch.getLogger().isEnabled(Logger.INFO)){
-      JSch.getLogger().log(Logger.INFO, 
+    if(KSch.getLogger().isEnabled(Logger.INFO)){
+      KSch.getLogger().log(Logger.INFO, 
                            "SSH_MSG_SERVICE_ACCEPT received");
     }
     if(!result)

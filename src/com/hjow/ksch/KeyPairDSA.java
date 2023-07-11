@@ -68,11 +68,11 @@ public class KeyPairDSA extends KeyPair{
   //private int key_size=0;
   private int key_size=1024;
 
-  public KeyPairDSA(JSch jsch){
+  public KeyPairDSA(KSch jsch){
     this(jsch, null, null, null, null, null);
   }
 
-  public KeyPairDSA(JSch jsch,
+  public KeyPairDSA(KSch jsch,
                     byte[] P_array,
                     byte[] Q_array,
                     byte[] G_array,
@@ -320,7 +320,7 @@ public class KeyPairDSA extends KeyPair{
     return null;
   }
 
-  static KeyPair fromSSHAgent(JSch jsch, Buffer buf) throws JSchException {
+  static KeyPair fromSSHAgent(KSch jsch, Buffer buf) throws JSchException {
 
     byte[][] tmp = buf.getBytes(7, "invalid key format");
 

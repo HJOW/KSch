@@ -80,11 +80,11 @@ public class KeyPairECDSA extends KeyPair{
 
   private int key_size=256;
 
-  public KeyPairECDSA(JSch jsch){
+  public KeyPairECDSA(KSch jsch){
     this(jsch, null, null, null, null);
   }
 
-  public KeyPairECDSA(JSch jsch,
+  public KeyPairECDSA(KSch jsch,
                       byte[] name,
                       byte[] r_array,
                       byte[] s_array,
@@ -355,7 +355,7 @@ public class KeyPairECDSA extends KeyPair{
     return null;
   }
 
-  static KeyPair fromSSHAgent(JSch jsch, Buffer buf) throws JSchException {
+  static KeyPair fromSSHAgent(KSch jsch, Buffer buf) throws JSchException {
 
     byte[][] tmp = buf.getBytes(5, "invalid key format");
 

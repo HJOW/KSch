@@ -96,22 +96,22 @@ public abstract class KeyPair {
     protected boolean encrypted = false;
     protected byte[] data = null;
     int vendor = VENDOR_OPENSSH;
-    JSch jsch = null;
+    KSch jsch = null;
     private Cipher cipher;
     private HASH hash;
     private Random random;
     private byte[] passphrase;
     private byte[] iv = null;
     private byte[] publickeyblob = null;
-    public KeyPair(JSch jsch) {
+    public KeyPair(KSch jsch) {
         this.jsch = jsch;
     }
 
-    public static KeyPair genKeyPair(JSch jsch, int type) throws JSchException {
+    public static KeyPair genKeyPair(KSch jsch, int type) throws JSchException {
         return genKeyPair(jsch, type, 1024);
     }
 
-    public static KeyPair genKeyPair(JSch jsch, int type, int key_size) throws JSchException {
+    public static KeyPair genKeyPair(KSch jsch, int type, int key_size) throws JSchException {
         KeyPair kpair = null;
         if (type == DSA) {
             kpair = new KeyPairDSA(jsch);
@@ -133,11 +133,11 @@ public abstract class KeyPair {
         return kpair;
     }
 
-    public static KeyPair load(JSch jsch, String prvkey) throws JSchException {
+    public static KeyPair load(KSch jsch, String prvkey) throws JSchException {
         return load(jsch, prvkey, null);
     }
 
-    public static KeyPair load(JSch jsch, String prvfile, String pubfile) throws JSchException {
+    public static KeyPair load(KSch jsch, String prvfile, String pubfile) throws JSchException {
 
         byte[] prvkey = null;
         byte[] pubkey = null;
@@ -172,7 +172,7 @@ public abstract class KeyPair {
         }
     }
 
-    public static KeyPair load(JSch jsch, byte[] prvkey, byte[] pubkey) throws JSchException {
+    public static KeyPair load(KSch jsch, byte[] prvkey, byte[] pubkey) throws JSchException {
 
         byte[] iv = new byte[8];       // 8
         boolean encrypted = true;
@@ -664,7 +664,7 @@ public abstract class KeyPair {
         return (byte) (c - 10 + 'A');
     }
 
-    static KeyPair loadPPK(JSch jsch, byte[] buf) throws JSchException {
+    static KeyPair loadPPK(KSch jsch, byte[] buf) throws JSchException {
         byte[] pubkey = null;
         byte[] prvkey = null;
         int lines = 0;
