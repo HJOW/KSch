@@ -6,6 +6,8 @@ Almost every classes are just same as JSch project excepts...
 * ChannelSftp
 * KChannelSftp (New)
 * Channel
+* KSch (<- JSch)
+* All classes using JSch class
 
 All package names are changed for prevent conflict with JSch.
 
@@ -26,3 +28,5 @@ setFilenameEncoding(String) 메소드가 오버라이드되어 다른 캐릭터�
 * ChannelSftp
 * KChannelSftp
 * Channel
+* KSch (<- JSch)
+* JSch 클래스를 사용하는 모든 클래스
